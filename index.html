@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Somalia 3W</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+
+   <link href="style.css" rel="stylesheet">
+
+
+   <style>
+   	#loadinggif{
+	  position: fixed;
+	  z-index: 9000;
+	  top: 0;
+	  left: 0;
+	  width: 100vw;
+	  height: 100vh;
+	  background: rgba(0,0,0,.4);
+	  text-align: center;
+	  padding-top: 45vh;
+	  display: none;
+	}
+	#loadinggif img{
+		width: 100px;
+	}
+   </style>
+  </head>
+
+  <body>
+   	<div class="container" width:75%; margin: 0 auto;>
+
+  	<div id="loadinggif"><img src="https://ui-ex.com/images/gif-transparent-loading-4.gif"></div>
+
+  	<!-- HEADER -->
+    <div id="blockhead" class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+      <h3 class="my-0 mr-md-auto font-weight-bold">&nbsp; &nbsp; 3W Somalia</h3>
+      <div class="col-3 blockmaptop" style="border-right:0px">
+		    <font class="blockmaptop_title">
+	    	</font>
+	    	<center>
+	    		<select class="form-control" id="periodselect" data-default ="0">
+	    		</select>     
+	    	</center>
+	  </div>
+
+      <nav class="my-2 my-md-0 mr-md-3">
+      	<h4 class="button" font-weight= 'bold' id="resetall">Clear Filter</h4>
+      </nav>
+
+    </div>
+    <!-- END HEADER -->
+
+    <!-- START Page Content -->
+    <div class="container-fluid" id='maincontainer'>
+    	<div class="row">
+
+        	<!-- CENTER PANEL -->
+
+        	<div class="col-12">
+    			<div class="col-md-12 apanel">
+	    			<div class="row">
+	    			<div class="row blockrow">
+	    				<div class="col-md-12" style="text-align: left; margin-bottom: 2rem">
+	    					<p class="pmap">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+	    					</p>
+	    				</div>
+		            </div>
+	    		</div>
+
+	    		<div class="col-md-12 apanel">
+	    			<div class="row">
+	    				<div class="col-md-4">
+	    					<div class="col-md-12 paneltitle" style="margin-bottom: 2rem; text-align: left">
+			    				<font class="panelTitleBold">Key Figures</font>
+			    			</div>
+		    				
+							<div class="col-md-12" style="margin-bottom: 5rem; text-align: left">
+								<table style="float: left;">
+									<tr>
+										<th rowspan="2">
+											<img style="height: 60px; padding-right: 25px" class="img-responsive" src='images/org.png'>
+											<td id="val1" class="thevaluedata"></td>
+										</th>
+									</tr>
+									<tr>
+										<td>
+											<font class="panelTitleBold">Organization</font>
+										</td>
+									</tr>
+								</table>
+							</div>
+
+							<hr style="border: 1px dashed #f1f1f1; margin-bottom: 1rem" />
+
+							<div class="col-md-12" style="margin-bottom: 5rem; text-align: left">
+								<table style="float: left;">
+									<tr>
+										<th rowspan="2">
+											<img style="height: 60px; padding-right: 25px" class="img-responsive" src='images/activities.png'>
+											<td id="val2" class="thevaluedata"></td>
+										</th>
+									</tr>
+									<tr>
+										<td>
+											<font class="panelTitleBold">Activities</font>
+										</td>
+									</tr>
+								</table>
+							</div>
+
+							<hr style="border: 1px dashed #f1f1f1; margin-bottom: 1rem" />
+
+							<div class="col-md-12" style="margin-bottom: 7rem; text-align: left">
+								<table style="float: left;">
+									<tr>
+										<th rowspan="2">
+											<img style="height: 60px; padding-right: 25px" class="img-responsive" src='images/point.png'>
+											<td id="val3" class="thevaluedata"></td>
+										</th>
+									</tr>
+									<tr>
+										<td>
+											<font class="panelTitleBold">Locations</font>
+										</td>
+									</tr>
+								</table>
+							</div>
+
+			    			<div class="col-md-12 paneltitle" style="margin-bottom: 2rem; text-align: left">
+			    				<font class="panelTitleBold">Activity Status</font>
+			    			</div>
+			    			<div id="pieStat"></div>
+
+			    		</div>
+
+	    				<div class="col-md-8" style="margin-bottom: 2rem">
+	    					<div id='regions_div'></div>
+	    				</div>
+	    			</div>
+	    		</div>
+				<div class="col-md-12">
+					<div class="row">
+			    		<div class="col-md-12" style="margin-top: 1rem margin-left: 1rem">
+		    				<div class="col-md-12 paneltitle2">
+			    				<font class="panelTitleBold" >Sector Activity</font>
+			    			</div>
+			    			<div id="barSect"></div>
+			    		</div>
+					</div>
+				</div>
+	    				
+	    	</div>
+    		
+    		<div class="col-md-12 hidewhenmobile order-md-4" style="margin-top: 2rem">
+    			<left>
+	    			<p class="pmap">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					</p>
+				</center>
+	    		<div class="col-md-12 apanel" style="margin-top: 10px;">
+	    			<div class="row">
+		    			<div class="col-md-12">
+		    				<table id="datatable" class="table table-striped table-bordered table-hover" style= 'width:100%; overflow-y: scroll'></table>
+		    			</div>
+		    		</div>
+	    		</div>
+	    	</div>
+	    	<footer>
+                <div style="font-size: 12px; padding-right: 30px; padding-top: 10px">
+                	<table style="float: right;">
+                		<tr>
+                			<td>Powered by &nbsp;</td>
+                			<td>
+                				<a target="_blank" href="https://data.humdata.org">
+			                		<img style="height: 17px" class="img-responsive hdx" src='images/HDX-logo-home.svg'>
+			                	</a>
+                			</td>
+                		</tr>
+                	</table>	
+                </div>
+                </div>
+            </footer> 
+
+    	</div>
+    </div>
+    <!-- END Page Content -->
+    <br/><br/>
+
+
+    <!-- JAVASCRIPT LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+   integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+   crossorigin=""></script>
+
+   
+
+    <script type="text/javascript">
+    	$(document).ready(function(){
+
+    		// INITIAL VARIABLE
+    		var thedata,
+    			theDataTableInit = 0,
+    			human_number = d3.format(",d"),
+    			SelectedRegion = 'District',
+    			statesData = 0,
+    			locationCount = [],
+    			reportingperiod = [],
+    			organisationCount = [],
+    			statusCount = [],
+    			sectorCount = [],
+    			orgtotal = 0,
+    			periodselect = 0,
+    			zero = 0;
+    			regionselect = 0;
+
+
+			var geojson;
+			var map = L.map('regions_div', { //map is a global variable
+			    center: [5.534876450920296, 45.6753158569336],
+			    zoom: 6,
+			    zoomDelta: 0.1,
+		        zoomSnap: 0,
+			    zoomControl: false,
+			    layerControl:false,
+			    attributionControl: true,
+			    minZoom: 5,
+			    maxZoom: 19,
+			});
+			var CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+
+			});
+
+			var humanNumber = d3.format(',d');
+
+			CartoDB_Positron.addTo(map);
+
+
+
+
+			// function drawboundaries(){
+			// 	d3.json('mwi_admbnda_adm0_nso_20181016.geojson',function(jso){	
+	  //   			// var statesData = jso;
+	  //   			// get color depending on population density value
+			// 		function style(feature) {
+			// 			return {
+			// 				weight: 2,
+			// 				opacity: 1,
+			// 				color: 'grey',
+			// 				fillColor: 'transparent',
+			// 				className: 'countriesboundaries'
+			// 			};
+			// 		}
+			// 		var geojson;
+			// 		geojson = L.geoJson(jso, {
+			// 			style: style,
+			// 		}).addTo(map);
+	  //   		})
+			// }
+			
+
+    		// function to draw the map
+    		function drawregiondiv(){
+    			
+    			// control that shows state info on hover
+				var info = L.control();
+
+				info.onAdd = function (map) {
+					this._div = L.DomUtil.create('div', 'info');
+					this.update();
+					return this._div;
+				};
+
+				info.update = function (props) {
+					// if(props){
+					// 	console.log(locationCount,props.District);
+					// }
+					
+					this._div.innerHTML = '<h6>Organisation Activities by District</h6>' +  (props ?
+						'<b>' + props.admin2Name + '</b><br />' + locationCount[props.admin2Name.toUpperCase()] + ' Activities'
+						: 'Hover over a state');
+				};
+
+				info.addTo(map);
+
+
+				// get color depending on population density value
+				function getColor(d) {
+					return 	d > 500  ? '#EC645B' :
+							d > 200  ? '#EF8078' :
+							d > 100  ? '#F29C96' :
+							d > 30   ? '#F6B8B4' :
+							d > 1   ? '#F9D4D2' :
+										'transparent';
+				}
+
+				function style(feature) {
+					return {
+						weight: 0.7,
+						opacity: 1,
+						color: '#F18E87',
+						dashArray: '1',
+						fillOpacity: 0.7,
+						fillColor: getColor(locationCount[feature.properties.admin2Name.toUpperCase()]) 
+					};
+				}
+
+				function highlightFeature(e) {
+					var layer = e.target;
+
+					layer.setStyle({
+						weight: 4,
+						color: '#908E8E',
+						dashArray: '',
+						fillOpacity: 0.7
+					});
+
+					if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+						// layer.bringToFront();
+					}
+
+					info.update(layer.feature.properties);
+				}
+
+
+				function resetHighlight(e) {
+					geojson.resetStyle(e.target);
+					info.update();
+				}
+
+				function zoomToFeature(e) {
+					// map.fitBounds(e.target.getBounds());
+					let kec = e.target.feature.properties.admin2Name;
+					let select = kec.replace(' ','-');
+					$('#regionselect option').removeAttr('selected').filter('[value=' + select + ']').attr('selected', true);
+					redrawvis(kec);
+				}
+
+				function onEachFeature(feature, layer) {
+					layer.on({
+						mouseover: highlightFeature,
+						mouseout: resetHighlight,
+						click: zoomToFeature
+					});
+				}
+
+				geojson = L.geoJson(statesData, {
+					style: style,
+					onEachFeature: onEachFeature
+				}).addTo(map);
+
+				//map.attributionControl.addAttribution('3W Data &copy; Compile by Government of Malawi and OCHA');
+
+
+				var legend = L.control({position: 'bottomright'});
+
+				legend.onAdd = function (map) {
+
+					var div = L.DomUtil.create('div', 'info legend'),
+						grades = [1, 30, 100, 200, 500],
+						labels = [],
+						from, to;
+
+					for (var i = 0; i < grades.length; i++) {
+						from = grades[i];
+						to = grades[i + 1];
+
+						labels.push(
+							'<i style="background:' + getColor(from + 1) + '"></i> ' +
+							from + (to ? '&ndash;' + to : '+'));
+					}
+
+					div.innerHTML = labels.join('<br>');
+					return div;
+				};
+
+				legend.addTo(map);
+	    	}
+
+	   //  	function f_drawPieOrg(){
+	   //  		var thedata = [['Type Org', 'Total']];
+	   //  		for(x in organisationCount){
+	   //  			thedata.push([x,organisationCount[x]])
+	   //  		}
+
+	   //  		// Load google charts
+				// google.charts.load('current', {'packages':['corechart']});
+				// google.charts.setOnLoadCallback(drawChart);
+
+				// // Draw the chart and set the chart values
+				// function drawChart() {
+				//   var data = google.visualization.arrayToDataTable(thedata);
+
+				//   // Optional; add a title and set the width and height of the chart
+				//   var options = {
+				//   	legend: 'none',
+				//   	padding:'15px',
+			 //        pieSliceText: 'label',
+			 //        pieStartAngle: 100,
+			 //        colors: ['#2E75BA', '#548EC6', '#7AA7D3', '#A0C0DF', '#C6D9EC'],
+			 //        chartArea:{
+			 //        	left:'15%',
+			 //        	top:10,
+			 //        	bottom:10,
+			 //        	width:'70%',
+			 //        	height:'60%'
+			 //        }
+			 //      };
+
+				//   // Display the chart inside the <div> element with id="piechart"
+				//   var chart = new google.visualization.PieChart(document.getElementById('pieOrg'));
+				//   chart.draw(data, options);
+				//   google.visualization.events.addListener(chart, 'select', function() {
+				// 	  var sel = chart.getSelection()[0].row;
+				// 	  redrawbaseorg(thedata[sel+1][0]);
+				//   });
+				// }
+	   //  	}
+				
+			function f_drawPieStat(){
+	    		var thedata = [['Project Status', 'Total']];
+	    		for(x in statusCount){
+	    			thedata.push([x,statusCount[x]])
+	    		}
+
+	    		// Load google charts
+				google.charts.load('current', {'packages':['corechart']});
+				google.charts.setOnLoadCallback(drawChart);
+
+				// Draw the chart and set the chart values
+				function drawChart() {
+				  var data = google.visualization.arrayToDataTable(thedata);
+
+				  // Optional; add a title and set the width and height of the chart
+				  var options = {
+				  	pieHole: 0.5,
+				  	legend: 'none',
+			        pieSliceText: 'label',
+			        	color: 'black',
+			        pieStartAngle: 100,
+			        colors: ['#548EC6', '#679ACC', '#7AA7D3', '#8DB3D9', 'A0C0DF'],
+			        chartArea:{
+			        	left:"15%",
+			        	top:10,
+			        	bottom:10,
+			        	width:'70%',
+			        	height:'70%'
+			        },
+			      };
+
+				  // Display the chart inside the <div> element with id="piechart"
+				  var chart = new google.visualization.PieChart(document.getElementById('pieStat'));
+				  chart.draw(data, options);
+				  google.visualization.events.addListener(chart, 'select', function() {
+					  var sel = chart.getSelection()[0].row;
+					  redrawbasestat(thedata[sel+1][0]);
+				  });
+				}
+	    	}		
+
+	    	function f_drawBarSect(){
+	    		var head = ['Sector', 'Total',{type: 'string', role: 'annotation'}];
+	    		var thedata = [];
+	    		for(x in sectorCount){
+	    			thedata.push([x,sectorCount[x],sectorCount[x]])
+	    		}
+	    		thedata.sort(sortFunction);
+
+				function sortFunction(a, b) {
+				    if (a[1] === b[1]) {
+				        return 0;
+				    }
+				    else {
+				        return (a[1] > b[1]) ? -1 : 1;
+				    }
+				}
+				thedata.unshift(head);
+
+	    		google.charts.load('current', {packages: ['corechart', 'bar']});
+				google.charts.setOnLoadCallback(drawBasic);
+
+				function drawBasic() {
+
+				      var data = google.visualization.arrayToDataTable(thedata);
+
+				      var options = {
+				      	colors:['#2E75BA'],
+				      	height:350,
+				        chartArea: {width: '90%',top:5,right:3 ,bottom:40},
+				        legend: 'none',
+				        
+				        hAxis: {
+				          title: 'Total Activities',
+				          minValue: 0
+				        },
+				        vAxis: {
+				          // title: 'Sectors'
+				          textStyle:{
+				          	fontSize:10
+				          }
+				        },
+				        annotations: {
+				          alwaysOutside: true,
+				          textStyle: {
+				            fontSize: 12,
+				            auraColor: 'none',
+				            color: '#555'
+				          },
+				          boxStyle: {
+				            stroke: '#ccc',
+				            strokeWidth: 1,
+				            gradient: {
+				              color1: '#f3e5f5',
+				              color2: '#f3e5f5',
+				              x1: '0%', y1: '0%',
+				              x2: '100%', y2: '100%'
+				            }
+				          }
+				        },
+				        animation:{
+					        duration: 1000,
+					        easing: 'out',
+					        startup: true
+					    },
+				      };
+
+				      var chart = new google.visualization.BarChart(document.getElementById('barSect'));
+
+				      chart.draw(data, options);
+				      google.visualization.events.addListener(chart, 'select', function() {
+						  var sel = chart.getSelection()[0].row;
+						  redrawbasesector(thedata[sel+1][0]);
+					  });
+				    }
+	    	}	
+
+
+	    	// function to draw the data table
+	    	function f_drawDataTable(data){
+	    		if(theDataTableInit){
+	    			theDataTableInit.destroy();
+	    		}
+
+	    		var thedatasource = [];
+	    		$.each(data,function(i,z){        
+
+	    			newdata = [	z['Reporting period'],
+	    						z['Organization'],
+	    						z['Donor'],
+	    						z['Cluster'],
+	    						// z['ACTIVITY DESCRIPTION'],
+	    						z['Implementing Partners'],
+	    						z['Region'],
+	    						z['District'],
+	    						//z['SPECIFIC LOCATION'],
+	    						//z['RURAL/URBAN'],
+	    						z['Status'],
+	    						//z['DURATION'],
+	    						z['Start Date'],
+	    						z['End Date'],
+	    						//z['Y_COORD'],
+	    						//z['X_COORD'],
+	    					];
+	    			
+    				thedatasource.push(newdata);
+    			});
+
+
+	    		theDataTableInit = $('#datatable').DataTable( {
+	    			data: thedatasource,
+			        columns: [
+			            { title: "Reporting Period" },
+			            { title: "Organization" },
+			            { title: "Donor"},
+			            { title: "Cluster" },
+			            // { title: "ACTIVITY DESCRIPTION" },
+			            { title: "Implementing Partners" },
+			            { title: "Region" },
+			            { title: "District" },
+			            //{ title: "SPECIFIC LOCATION" },
+			            //{ title: "RURAL/URBAN"},
+			            { title: "Status" },
+			            //{ title: "DURATION" },
+			            { title: "Start Date" },
+			            { title: "End Date" },
+			            //{ title: "Y_COORD" },
+			            //{ title: "X_COORD" },
+			        ],
+			        responsive: true,
+			        
+				    
+			    } );
+	    	}
+
+	    	$('#regionselect').on('change',function(){
+	    		var val = $(this).val();
+	    		let select = val.replace('-',' ');
+	    		regionselect = select;
+	    		$('#loadinggif').show();
+	    		setTimeout(function(){
+	    			if(val == 0){
+		    			redrawvis(val);
+		    		}else{
+		    			redrawvis(select);
+
+		    		}
+	    			$('#loadinggif').hide();
+	    		},500)
+	    	})
+
+	    	$('#periodselect').on('change',function(){
+	    		$('#loadinggif').show();
+	    		var val = $(this).val();
+	    		periodselect = val;
+	    		setTimeout(function(){
+	    			redrawvisbasedonperiod(periodselect);
+	    			$('#loadinggif').hide();
+	    		},500)
+	    	})
+
+	    	$('#resetall').on('click',function(){
+	    		$('#loadinggif').show();
+	    		setTimeout(function(){
+	    			redrawvisbasedonperiod(0)
+	    			$('#loadinggif').hide();
+	    		},500)
+	    	})
+
+	    	function redrawvisbasedonperiod(theperiod){
+	    		map.removeLayer(geojson);
+	    		$('.info').remove();
+	    		var therepper = 0;
+
+    			organisationCount = [];
+    			statusCount = [];
+    			sectorCount = [];
+    			locationCount=[];
+    			datatblnew = [];
+    			orgtotal=[];
+    			$('#regionselect').html('');
+    			$('#regionselect').append('<option value="0">ALL DISTRICT</option>');
+
+    			if(theperiod == 0){
+    				reportingperiod = [];
+    				$('#periodselect').html('');
+	    			thedata.forEach(function(d){
+	    				let repper = d['Reporting period'];
+		    			if(!reportingperiod[repper]){
+		    				reportingperiod[repper] = repper;
+		    				therepper = repper;
+		    				$('#periodselect').append('<option class="periodselect" selected="true" value="'+repper+'">'+repper+'</option>');
+		    				$('#periodselect option[value="'+repper+'"]').prop("selected",true);
+		    			}
+		    			theperiod = therepper;
+		    		});
+    			}
+    			
+	    		thedata.forEach(function(d){
+	    			if(d['Reporting period'] == theperiod){
+	    				datatblnew.push(d);
+	    				let tempat = d['District'].toUpperCase();
+		    			if(locationCount[tempat]){
+		    				locationCount[tempat] += 1;
+		    			}else{
+		    				locationCount[tempat] = 1;
+		    				let select = tempat.replace(' ','-');
+		    				$('#regionselect').append('<option value="'+select+'">'+tempat+'</option>');
+		    			}
+		    			let orgtype = d['Donor'].toUpperCase();
+		    			if(organisationCount[orgtype]){
+		    				organisationCount[orgtype] += 1;
+		    			}else{
+		    				organisationCount[orgtype] = 1;
+		    			}
+
+		    			let stattype = d['Status'].toUpperCase();
+		    			if(stattype!=''){
+		    				if(statusCount[stattype]){
+			    				statusCount[stattype] += 1;
+			    			}else{
+			    				statusCount[stattype] = 1;
+			    			}
+		    			}
+
+		    			let sectortype = d['Cluster'].toUpperCase();
+		    			if(sectorCount[sectortype]){
+		    				sectorCount[sectortype] += 1;
+		    			}else{
+		    				sectorCount[sectortype] = 1;
+		    			}
+
+		    			let org=d['Organization'];
+		    			let cek = $.inArray( org, orgtotal ); 
+		    			if(cek == -1){
+		    				orgtotal.push(org);
+		    			}
+		    		}
+	    			
+	    		})
+	    		periodselect = theperiod;
+
+	    		drawregiondiv();
+	    		//f_drawPieOrg();
+	    		f_drawPieStat();
+	    		f_drawBarSect();
+	    		f_drawDataTable(datatblnew);
+
+	    		let val3 = 0;
+	    		let val2 = 0;
+	    		for(x in locationCount){
+	    			val3++;
+	    			val2+=locationCount[x];
+	    		}
+	    		$('#val3').html(val3);
+	    		$('#val2').html(humanNumber(val2));
+	    		$('#val1').html(orgtotal.length);
+	    	}
+
+	    	function redrawvis(namaDistrict){
+	    		$('#loadinggif').show();
+	    		map.removeLayer(geojson);
+	    		$('.info').remove();
+
+    			organisationCount = [];
+    			statusCount = [];
+    			sectorCount = [];
+    			locationCount=[];
+    			datatblnew = [];
+    			orgtotal=[];
+
+	    		thedata.forEach(function(d){
+	    			if(namaDistrict == '0' && periodselect == d['Reporting period'] ){
+	    				datatblnew.push(d);
+	    				let tempat = d['District'].toUpperCase();
+		    			if(locationCount[tempat]){
+		    				locationCount[tempat] += 1;
+		    			}else{
+		    				locationCount[tempat] = 1;
+		    				// let select = tempat.replace(' ','-');
+		    				// $('#regionselect').append('<option value="'+select+'">'+tempat+'</option>');
+		    			}
+
+		    			let orgtype = d['Donor'].toUpperCase();
+		    			if(organisationCount[orgtype]){
+		    				organisationCount[orgtype] += 1;
+		    			}else{
+		    				organisationCount[orgtype] = 1;
+		    			}
+
+		    			let stattype = d['Status'].toUpperCase();
+		    			if(stattype!=''){
+		    				if(statusCount[stattype]){
+			    				statusCount[stattype] += 1;
+			    			}else{
+			    				statusCount[stattype] = 1;
+			    			}
+		    			}
+
+		    			let sectortype = d['Cluster'].toUpperCase();
+		    			if(sectorCount[sectortype]){
+		    				sectorCount[sectortype] += 1;
+		    			}else{
+		    				sectorCount[sectortype] = 1;
+		    			}
+
+		    			let org=d['Organization'];
+		    			let cek = $.inArray( org, orgtotal ); 
+		    			if(cek == -1){
+		    				orgtotal.push(org);
+		    			}
+	    			}
+	    			else if(d['District'].toUpperCase() == namaDistrict.toUpperCase() && periodselect == d['Reporting period']){
+	    				datatblnew.push(d);
+	    				let tempat = d['District'].toUpperCase();
+		    			if(locationCount[tempat]){
+		    				locationCount[tempat] += 1;
+		    			}else{
+		    				locationCount[tempat] = 1;
+		    				// let select = tempat.replace(' ','-');
+		    				// $('#regionselect').append('<option value="'+select+'">'+tempat+'</option>');
+		    			}
+		    			let orgtype = d['Donor'].toUpperCase();
+		    			if(organisationCount[orgtype]){
+		    				organisationCount[orgtype] += 1;
+		    			}else{
+		    				organisationCount[orgtype] = 1;
+		    			}
+
+		    			let stattype = d['Status'].toUpperCase();
+		    			if(stattype!=''){
+		    				if(statusCount[stattype]){
+			    				statusCount[stattype] += 1;
+			    			}else{
+			    				statusCount[stattype] = 1;
+			    			}
+		    			}
+
+		    			let sectortype = d['Cluster'].toUpperCase();
+		    			if(sectorCount[sectortype]){
+		    				sectorCount[sectortype] += 1;
+		    			}else{
+		    				sectorCount[sectortype] = 1;
+		    			}
+
+		    			let org=d['Organization'];
+		    			let cek = $.inArray( org, orgtotal ); 
+		    			if(cek == -1){
+		    				orgtotal.push(org);
+		    			}
+		    		}
+	    			
+	    		})
+
+	    		drawregiondiv();
+	    		//f_drawPieOrg();
+	    		f_drawPieStat();
+	    		f_drawBarSect();
+	    		f_drawDataTable(datatblnew);
+
+	    		let val3 = 0;
+	    		let val2 = 0;
+	    		for(x in locationCount){
+	    			val3++;
+	    			val2+=locationCount[x];
+	    		}
+	    		$('#val3').html(val3);
+	    		$('#val2').html(humanNumber(val2));
+	    		$('#val1').html(orgtotal.length);
+	    		$('#loadinggif').hide();
+	    	}
+
+	    	function redrawbasestat(stat){
+	    		$('#loadinggif').show();
+	    		setTimeout(function(){
+	    			run();
+	    			$('#loadinggif').hide();
+	    		},500)
+
+	    		function run(){
+	    			map.removeLayer(geojson);
+		    		$('.info').remove();
+		    		
+		    		organisationCount = [];
+	    			datatblnew = [];
+	    			locationCount = [];
+	    			orgtotal=[];
+	    			sectorCount=[];
+
+	    			console.log(periodselect);
+	    			console.log(regionselect);
+
+		    		thedata.forEach(function(d){
+		    			if( d['District'].toUpperCase() == regionselect){
+		    				console.log(d['District'].toUpperCase())
+		    			}
+		    			if(d['Status'].toUpperCase() == stat && d['Reporting period'] == periodselect && (regionselect == 0 || regionselect == d['District'].toUpperCase()) ){
+		    				datatblnew.push(d);
+		    				let tempat = d['District'].toUpperCase();
+			    			if(locationCount[tempat]){
+			    				locationCount[tempat] += 1;
+			    			}else{
+			    				locationCount[tempat] = 1;
+			    				let select = tempat.replace(' ','-');
+			    				$('#regionselect').append('<option value="'+select+'">'+tempat+'</option>');
+			    			}
+
+			    			let orgtype = d['Donor'].toUpperCase();
+			    			if(organisationCount[orgtype]){
+			    				organisationCount[orgtype] += 1;
+			    			}else{
+			    				organisationCount[orgtype] = 1;
+			    			}
+
+			    			let org=d['Organization'];
+			    			let cek = $.inArray( org, orgtotal ); 
+			    			if(cek == -1){
+			    				orgtotal.push(org);
+			    			}
+
+			    			let sectortype = d['Cluster'].toUpperCase();
+			    			if(sectorCount[sectortype]){
+			    				sectorCount[sectortype] += 1;
+			    			}else{
+			    				sectorCount[sectortype] = 1;
+			    			}
+		    			}
+		    		})
+
+		    		drawregiondiv();
+		    		//f_drawPieOrg();
+		    		f_drawDataTable(datatblnew);
+		    		f_drawBarSect();
+
+		    		let val3 = 0;
+		    		let val2 = 0;
+		    		for(x in locationCount){
+		    			val3++;
+		    			val2+=locationCount[x];
+		    		}
+		    		$('#val3').html(val3);
+		    		$('#val2').html(humanNumber(val2));
+		    		$('#val1').html(orgtotal.length);
+	    		}
+	    	}
+
+	    	function redrawbaseorg(org){
+	    		$('#loadinggif').show();
+	    		setTimeout(function(){
+	    			run();
+	    			$('#loadinggif').hide();
+	    		},500)
+	    		function run(){
+	    			map.removeLayer(geojson);
+		    		$('.info').remove();
+		    		
+	    			datatblnew = [];
+	    			locationCount = [];
+	    			orgtotal=[];
+	    			sectorCount=[];
+	    			statusCount = [];
+
+		    		thedata.forEach(function(d){
+		    			if(d['Donor'].toUpperCase() == org && d['Reporting period'] == periodselect && (regionselect == 0 || regionselect == d['District'].toUpperCase())){
+		    				datatblnew.push(d);
+		    				let tempat = d['District'].toUpperCase();
+			    			if(locationCount[tempat]){
+			    				locationCount[tempat] += 1;
+			    			}else{
+			    				locationCount[tempat] = 1;
+			    				let select = tempat.replace(' ','-');
+			    				$('#regionselect').append('<option value="'+select+'">'+tempat+'</option>');
+			    			}
+
+			    			let org=d['Organization'];
+			    			let cek = $.inArray( org, orgtotal ); 
+			    			if(cek == -1){
+			    				orgtotal.push(org);
+			    			}
+
+			    			let sectortype = d['Cluster'].toUpperCase();
+			    			if(sectorCount[sectortype]){
+			    				sectorCount[sectortype] += 1;
+			    			}else{
+			    				sectorCount[sectortype] = 1;
+			    			}
+
+			    			let stattype = d['Status'].toUpperCase();
+			    			if(stattype!=''){
+			    				if(statusCount[stattype]){
+				    				statusCount[stattype] += 1;
+				    			}else{
+				    				statusCount[stattype] = 1;
+				    			}
+			    			}
+		    			}
+		    		})
+
+		    		drawregiondiv();
+		    		f_drawDataTable(datatblnew);
+		    		f_drawBarSect();
+		    		f_drawPieStat();
+
+		    		let val3 = 0;
+		    		let val2 = 0;
+		    		for(x in locationCount){
+		    			val3++;
+		    			val2+=locationCount[x];
+		    		}
+		    		$('#val3').html(val3);
+		    		$('#val2').html(humanNumber(val2));
+		    		$('#val1').html(orgtotal.length);
+	    		}
+	    	}
+
+	    	function redrawbasesector(sector){
+	    		$('#loadinggif').show();
+	    		setTimeout(function(){
+	    			run();
+	    			$('#loadinggif').hide();
+	    		},500)
+	    		function run(){
+	    			map.removeLayer(geojson);
+		    		$('.info').remove();
+		    		
+		    		organisationCount = [];
+	    			statusCount = [];
+	    			datatblnew = [];
+	    			locationCount = [];
+	    			orgtotal=[];
+
+		    		thedata.forEach(function(d){
+		    			if(d['Cluster'].toUpperCase() == sector && d['Reporting period'] == periodselect && (regionselect == 0 || regionselect == d['District'].toUpperCase())){
+		    				datatblnew.push(d);
+		    				let tempat = d['District'].toUpperCase();
+			    			if(locationCount[tempat]){
+			    				locationCount[tempat] += 1;
+			    			}else{
+			    				locationCount[tempat] = 1;
+			    				let select = tempat.replace(' ','-');
+			    				$('#regionselect').append('<option value="'+select+'">'+tempat+'</option>');
+			    			}
+
+
+			    			let orgtype = d['Donor'].toUpperCase();
+			    			if(organisationCount[orgtype]){
+			    				organisationCount[orgtype] += 1;
+			    			}else{
+			    				organisationCount[orgtype] = 1;
+			    			}
+
+			    			let stattype = d['Status'].toUpperCase();
+			    			if(stattype!=''){
+			    				if(statusCount[stattype]){
+				    				statusCount[stattype] += 1;
+				    			}else{
+				    				statusCount[stattype] = 1;
+				    			}
+			    			}
+
+			    			let org=d['Organization'];
+			    			let cek = $.inArray( org, orgtotal ); 
+			    			if(cek == -1){
+			    				orgtotal.push(org);
+			    			}
+		    			}
+		    		})
+
+		    		drawregiondiv();
+		    		//f_drawPieOrg();
+		    		f_drawPieStat();
+		    		f_drawDataTable(datatblnew);
+
+		    		let val3 = 0;
+		    		let val2 = 0;
+		    		for(x in locationCount){
+		    			val3++;
+		    			val2+=locationCount[x];
+		    		}
+		    		$('#val3').html(val3);
+		    		$('#val2').html(humanNumber(val2));
+		    		$('#val1').html(orgtotal.length);
+	    		}
+	    	}
+
+	    	function drawinit(){
+	    		orgtotal=[];
+	    		var therepper = 0;
+	    		thedata.forEach(function(d){
+		    			let tempat = d['District'].toUpperCase();
+		    			if(locationCount[tempat]){
+		    				locationCount[tempat] += 1;
+		    			}else{
+		    				locationCount[tempat] = 1;
+		    				let select = tempat.replace(' ','-');
+		    				$('#regionselect').append('<option value="'+select+'">'+tempat+'</option>');
+		    			}
+
+		    			let repper = d['Reporting period'];
+		    			if(!reportingperiod[repper]){
+		    				reportingperiod[repper] = repper;
+		    				therepper = repper;
+		    				$('#periodselect').append('<option class="periodselect" selected="true" value="'+repper+'">'+repper+'</option>');
+		    				$('#periodselect option[value="'+repper+'"]').prop("selected",true);
+		    			}
+
+		    			let orgtype = d['Donor'].toUpperCase();
+		    			if(organisationCount[orgtype]){
+		    				organisationCount[orgtype] += 1;
+		    			}else{
+		    				organisationCount[orgtype] = 1;
+		    			}
+
+		    			let stattype = d['Status'].toUpperCase();
+		    			if(stattype!=''){
+		    				if(statusCount[stattype]){
+			    				statusCount[stattype] += 1;
+			    			}else{
+			    				statusCount[stattype] = 1;
+			    			}
+		    			}
+
+		    			let sectortype = d['Cluster'].toUpperCase();
+		    			if(sectorCount[sectortype]){
+		    				sectorCount[sectortype] += 1;
+		    			}else{
+		    				sectorCount[sectortype] = 1;
+		    			}
+		    			
+		    			
+		    			let org=d['Organization'];
+		    			let cek = $.inArray( org, orgtotal ); 
+		    			if(cek == -1){
+		    				orgtotal.push(org);
+		    			}
+		    	});
+
+
+		    		drawregiondiv();
+		    		// f_drawPieOrg();
+		    		f_drawPieStat();
+		    		f_drawBarSect();
+		    		f_drawDataTable(thedata);
+		    		periodselect = therepper;
+		    		redrawvisbasedonperiod(therepper)
+
+		    		let val3 = 0;
+		    		let val2 = 0;
+		    		for(x in locationCount){
+		    			val3++;
+		    			val2+=locationCount[x];
+		    		}
+		    		$('#val3').html(val3);
+		    		$('#val2').html(humanNumber(val2));
+		    		$('#val1').html(orgtotal.length);
+
+		    		//drawboundaries();
+	    	}
+
+	    	$('#loadinggif').show();
+		    d3.json('Adm2_SOM.geojson',function(jso){	
+	    		statesData = jso;
+	    		//call the original data
+	    		d3.csv('data/thedata.csv',function(data){
+		    		//set the data called to variable thedata
+		    		thedata = data;
+
+		    		drawinit();
+		    		$('#loadinggif').hide();
+		    	})	    	
+
+
+	    	})
+
+
+    	})
+    	
+    </script>
+
+
+  </body>
+
+</html>
