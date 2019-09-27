@@ -305,9 +305,6 @@
 				};
 
 				info.update = function (props) {
-					// if(props){
-					// 	console.log(locationCount,props.District);
-					// }
 					
 					this._div.innerHTML = '<h6>Organisation Activities by District</h6>' +  (props ?
 						'<b>' + props.admin2Name + '</b><br />' + locationCount[props.admin2Name.toUpperCase()] + ' Activities'
@@ -878,12 +875,9 @@
 	    			orgtotal=[];
 	    			sectorCount=[];
 
-	    			console.log(periodselect);
-	    			console.log(regionselect);
-
 		    		thedata.forEach(function(d){
 		    			if( d['District'].toUpperCase() == regionselect){
-		    				console.log(d['District'].toUpperCase())
+		    				
 		    			}
 		    			if(d['Status'].toUpperCase() == stat && d['Reporting period'] == periodselect && (regionselect == 0 || regionselect == d['District'].toUpperCase()) ){
 		    				datatblnew.push(d);
