@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
    crossorigin=""/>
+	  
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.css" rel='stylesheet' />
 
    <link href="style.css" rel="stylesheet">
 
@@ -40,7 +42,7 @@
 	  display: none;
 	}
 	#loadinggif img{
-		width: 100px;
+		width: 170px;
 	}
    </style>
   </head>
@@ -93,7 +95,7 @@
 			    				<font class="panelTitleBold">Key Figures</font>
 			    			</div>
 		    				
-							<div class="col-md-12" style="margin-bottom: 5rem; text-align: left">
+							<div class="col-md-12" style="margin-bottom: 6rem; text-align: left">
 								<table style="float: left;">
 									<tr>
 										<th rowspan="2">
@@ -111,7 +113,7 @@
 
 							<hr style="border: 1px dashed #f1f1f1; margin-bottom: 1rem" />
 
-							<div class="col-md-12" style="margin-bottom: 5rem; text-align: left">
+							<div class="col-md-12" style="margin-bottom: 6rem; text-align: left">
 								<table style="float: left;">
 									<tr>
 										<th rowspan="2">
@@ -129,7 +131,7 @@
 
 							<hr style="border: 1px dashed #f1f1f1; margin-bottom: 1rem" />
 
-							<div class="col-md-12" style="margin-bottom: 7rem; text-align: left">
+							<div class="col-md-12" style="margin-bottom: 8rem; text-align: left">
 								<table style="float: left;">
 									<tr>
 										<th rowspan="2">
@@ -154,6 +156,8 @@
 
 	    				<div class="col-md-8" style="margin-bottom: 2rem">
 	    					<div id='regions_div'></div>
+						<p style="text-align: left; margin-bottom: 2rem; font-size: 9px; font-style: italic; margin-top: 0.5rem"> The boundaries and names shown and the designations used on this map do not imply official endorsement or acceptance by the United Nations.
+	    					</p>
 	    				</div>
 	    			</div>
 	    		</div>
@@ -218,7 +222,8 @@
    integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
    crossorigin=""></script>
 
-   
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js"></script>
+    <script src="https://rawgit.com/mapbox/mapbox-gl-leaflet/master/leaflet-mapbox-gl.js"></script>
 
     <script type="text/javascript">
     	$(document).ready(function(){
@@ -245,21 +250,23 @@
 			    center: [5.534876450920296, 45.6753158569336],
 			    zoom: 6,
 			    zoomDelta: 0.1,
-		        zoomSnap: 0,
+		            zoomSnap: 0,
 			    zoomControl: false,
 			    layerControl:false,
 			    attributionControl: true,
 			    minZoom: 5,
 			    maxZoom: 19,
 			});
-			var CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-
+			var gv_baseMap = L.mapboxGL({
+			    accessToken: 'pk.eyJ1IjoidGhhbXJpbmYiLCJhIjoiYzA1MmJjMzI1N2E5NzNhN2I2MzU4MDkzZWU4ODQxNzAifQ.3qQApYaqLA0bGC3Z5PCnUg',
+			    style: 'mapbox://styles/thamrinf/ck10tppqm034k1cr0bu9mhdpl',
+			    zIndex: 1,
 			});
+
 
 			var humanNumber = d3.format(',d');
 
-			CartoDB_Positron.addTo(map);
+			gv_baseMap.addTo(map);
 
 
 
@@ -298,9 +305,6 @@
 				};
 
 				info.update = function (props) {
-					// if(props){
-					// 	console.log(locationCount,props.District);
-					// }
 					
 					this._div.innerHTML = '<h6>Organisation Activities by District</h6>' +  (props ?
 						'<b>' + props.admin2Name + '</b><br />' + locationCount[props.admin2Name.toUpperCase()] + ' Activities'
@@ -459,7 +463,7 @@
 
 				  // Optional; add a title and set the width and height of the chart
 				  var options = {
-				  	pieHole: 0.5,
+				  	pieHole: 0.4,
 				  	legend: 'true',
 			        	color: 'black',
 			        pieStartAngle: 100,
@@ -468,8 +472,8 @@
 			        	left:"15%",
 			        	top:10,
 			        	bottom:10,
-			        	width:'70%',
-			        	height:'70%'
+			        	width:'90%',
+			        	height:'90%'
 			        },
 			      };
 
@@ -871,12 +875,9 @@
 	    			orgtotal=[];
 	    			sectorCount=[];
 
-	    			console.log(periodselect);
-	    			console.log(regionselect);
-
 		    		thedata.forEach(function(d){
 		    			if( d['District'].toUpperCase() == regionselect){
-		    				console.log(d['District'].toUpperCase())
+
 		    			}
 		    			if(d['Status'].toUpperCase() == stat && d['Reporting period'] == periodselect && (regionselect == 0 || regionselect == d['District'].toUpperCase()) ){
 		    				datatblnew.push(d);
