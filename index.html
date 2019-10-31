@@ -42,7 +42,7 @@
 	  display: none;
 	}
 	#loadinggif img{
-		width: 170px;
+		width: 100px;
 	}
    </style>
   </head>
@@ -82,8 +82,7 @@
 	    			<div class="row">
 	    			<div class="row blockrow">
 	    				<div class="col-md-12" style="text-align: left; margin-bottom: 2rem">
-	    					<p class="pmap">Somalia is facing yet another severe drought due to the combined impact of the poor 2019 Gu’ (April-June) rains, which followed poor 2018 Deyr (October-December) rains, and harsh weather conditions during the dry Jilaal (January-March) season. Anticipated widespread crop failure and accelerated decline in livestock productivity are rapidly pushing communities in the worst-affected areas into acute food insecurity crisis phase or worse. Consequently, the number of people in acute food insecurity crisis phase or worse (IPC3 & 4) has spiked by ten per cent to more than 1.7 million by April, which is more than double the 2016/17 drought period, and is expected to reach 2.2 million by July. The 2019 Humanitarian Response Plan (HRP), which seeks $1.08 billion, is critically under-funded at only 19 per cent by the end of April. The Humanitarian Country Team is preparing a 2019 Drought Response Plan, nested within the 2019 Humanitarian response Plan (HRP), to mobilize resources to address food gaps in the most severely affected areas and to support a more substantial increase in needs during the period between May and October 2019.
-	    					</p>
+	    					<p class="pmap"></p>
 	    				</div>
 		            </div>
 	    		</div>
@@ -268,6 +267,8 @@
 
 			gv_baseMap.addTo(map);
 
+			calltext();
+
 
 
 
@@ -292,6 +293,18 @@
 			// }
 			
 
+
+			function calltext(){
+			    $('.pmap').html('No data available at selected period, please select quarter');
+			    d3.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSusiqupt53OxkNROz2M90aH-SkymauDoePdrx3Khh_um9Ax2s-C-ku8LDqAtMx-HO3SugPg3lG48WM/pub?gid=0&single=true&output=csv',function(data){
+			        data.forEach(function(d,i){
+			            if(d.Period == periodselect){
+			                $('.pmap').html(d.text);
+			            }
+			        })
+			    })
+			}
+
     		// function to draw the map
     		function drawregiondiv(){
     			
@@ -305,6 +318,9 @@
 				};
 
 				info.update = function (props) {
+					// if(props){
+					// 	console.log(locationCount,props.District);
+					// }
 					
 					this._div.innerHTML = '<h6>Organisation Activities by District</h6>' +  (props ?
 						'<b>' + props.admin2Name + '</b><br />' + locationCount[props.admin2Name.toUpperCase()] + ' Activities'
@@ -406,46 +422,6 @@
 
 				legend.addTo(map);
 	    	}
-
-	   //  	function f_drawPieOrg(){
-	   //  		var thedata = [['Type Org', 'Total']];
-	   //  		for(x in organisationCount){
-	   //  			thedata.push([x,organisationCount[x]])
-	   //  		}
-
-	   //  		// Load google charts
-				// google.charts.load('current', {'packages':['corechart']});
-				// google.charts.setOnLoadCallback(drawChart);
-
-				// // Draw the chart and set the chart values
-				// function drawChart() {
-				//   var data = google.visualization.arrayToDataTable(thedata);
-
-				//   // Optional; add a title and set the width and height of the chart
-				//   var options = {
-				//   	legend: 'none',
-				//   	padding:'15px',
-			 //        pieSliceText: 'label',
-			 //        pieStartAngle: 100,
-			 //        colors: ['#2E75BA', '#548EC6', '#7AA7D3', '#A0C0DF', '#C6D9EC'],
-			 //        chartArea:{
-			 //        	left:'15%',
-			 //        	top:10,
-			 //        	bottom:10,
-			 //        	width:'70%',
-			 //        	height:'60%'
-			 //        }
-			 //      };
-
-				//   // Display the chart inside the <div> element with id="piechart"
-				//   var chart = new google.visualization.PieChart(document.getElementById('pieOrg'));
-				//   chart.draw(data, options);
-				//   google.visualization.events.addListener(chart, 'select', function() {
-				// 	  var sel = chart.getSelection()[0].row;
-				// 	  redrawbaseorg(thedata[sel+1][0]);
-				//   });
-				// }
-	   //  	}
 				
 			function f_drawPieStat(){
 	    		var thedata = [['Project Status', 'Total']];
@@ -641,6 +617,7 @@
 	    		$('#loadinggif').show();
 	    		var val = $(this).val();
 	    		periodselect = val;
+	    		calltext();
 	    		setTimeout(function(){
 	    			redrawvisbasedonperiod(periodselect);
 	    			$('#loadinggif').hide();
@@ -875,9 +852,11 @@
 	    			orgtotal=[];
 	    			sectorCount=[];
 
+
+
 		    		thedata.forEach(function(d){
 		    			if( d['District'].toUpperCase() == regionselect){
-
+		    				// console.log(d['District'].toUpperCase())
 		    			}
 		    			if(d['Status'].toUpperCase() == stat && d['Reporting period'] == periodselect && (regionselect == 0 || regionselect == d['District'].toUpperCase()) ){
 		    				datatblnew.push(d);
