@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    
+
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
    crossorigin=""/>
-	  
+
     <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.css" rel='stylesheet' />
 
    <link href="style.css" rel="stylesheet">
@@ -60,7 +60,7 @@
 	    	</font>
 	    	<center>
 	    		<select class="form-control" id="periodselect" data-default ="0">
-	    		</select>     
+	    		</select>
 	    	</center>
 	  </div>
 
@@ -93,7 +93,7 @@
 	    					<div class="col-md-12 paneltitle" style="margin-bottom: 2rem; text-align: left">
 			    				<font class="panelTitleBold">Key Figures</font>
 			    			</div>
-		    				
+
 							<div class="col-md-12" style="margin-bottom: 6rem; text-align: left">
 								<table style="float: left;">
 									<tr>
@@ -170,9 +170,9 @@
 			    		</div>
 					</div>
 				</div>
-	    				
+
 	    	</div>
-    		
+
     		<div class="col-md-12 hidewhenmobile order-md-4" style="margin-top: 2rem">
     			<left>
 				</center>
@@ -195,10 +195,10 @@
 			                	</a>
                 			</td>
                 		</tr>
-                	</table>	
+                	</table>
                 </div>
                 </div>
-            </footer> 
+            </footer>
 
     	</div>
     </div>
@@ -273,7 +273,7 @@
 
 
 			// function drawboundaries(){
-			// 	d3.json('mwi_admbnda_adm0_nso_20181016.geojson',function(jso){	
+			// 	d3.json('mwi_admbnda_adm0_nso_20181016.geojson',function(jso){
 	  //   			// var statesData = jso;
 	  //   			// get color depending on population density value
 			// 		function style(feature) {
@@ -291,7 +291,7 @@
 			// 		}).addTo(map);
 	  //   		})
 			// }
-			
+
 
 
 			function calltext(){
@@ -307,7 +307,7 @@
 
     		// function to draw the map
     		function drawregiondiv(){
-    			
+
     			// control that shows state info on hover
 				var info = L.control();
 
@@ -321,7 +321,7 @@
 					// if(props){
 					// 	console.log(locationCount,props.District);
 					// }
-					
+
 					this._div.innerHTML = '<h6>Organisation Activities by District</h6>' +  (props ?
 						'<b>' + props.admin2Name + '</b><br />' + locationCount[props.admin2Name.toUpperCase()] + ' Activities'
 						: 'Hover over a state');
@@ -347,7 +347,7 @@
 						color: '#F18E87',
 						dashArray: '1',
 						fillOpacity: 0.7,
-						fillColor: getColor(locationCount[feature.properties.admin2Name.toUpperCase()]) 
+						fillColor: getColor(locationCount[feature.properties.admin2Name.toUpperCase()])
 					};
 				}
 
@@ -422,7 +422,7 @@
 
 				legend.addTo(map);
 	    	}
-				
+
 			function f_drawPieStat(){
 	    		var thedata = [['Project Status', 'Total']];
 	    		for(x in statusCount){
@@ -461,7 +461,7 @@
 					  redrawbasestat(thedata[sel+1][0]);
 				  });
 				}
-	    	}		
+	    	}
 
 	    	function f_drawBarSect(){
 	    		var head = ['Sector', 'Total',{type: 'string', role: 'annotation'}];
@@ -493,7 +493,7 @@
 				      	height:350,
 				        chartArea: {width: '90%',top:5,right:3 ,bottom:40},
 				        legend: 'none',
-				        
+
 				        hAxis: {
 				          title: 'Total Activities',
 				          minValue: 0
@@ -537,7 +537,7 @@
 						  redrawbasesector(thedata[sel+1][0]);
 					  });
 				    }
-	    	}	
+	    	}
 
 
 	    	// function to draw the data table
@@ -547,7 +547,7 @@
 	    		}
 
 	    		var thedatasource = [];
-	    		$.each(data,function(i,z){        
+	    		$.each(data,function(i,z){
 
 	    			newdata = [	z['Reporting period'],
 	    						z['Organization'],
@@ -566,7 +566,7 @@
 	    						//z['Y_COORD'],
 	    						//z['X_COORD'],
 	    					];
-	    			
+
     				thedatasource.push(newdata);
     			});
 
@@ -592,8 +592,8 @@
 			            //{ title: "X_COORD" },
 			        ],
 			        responsive: true,
-			        
-				    
+
+
 			    } );
 	    	}
 
@@ -660,7 +660,7 @@
 		    			theperiod = therepper;
 		    		});
     			}
-    			
+
 	    		thedata.forEach(function(d){
 	    			if(d['Reporting period'] == theperiod){
 	    				datatblnew.push(d);
@@ -696,12 +696,12 @@
 		    			}
 
 		    			let org=d['Organization'];
-		    			let cek = $.inArray( org, orgtotal ); 
+		    			let cek = $.inArray( org, orgtotal );
 		    			if(cek == -1){
 		    				orgtotal.push(org);
 		    			}
 		    		}
-	    			
+
 	    		})
 	    		periodselect = theperiod;
 
@@ -770,7 +770,7 @@
 		    			}
 
 		    			let org=d['Organization'];
-		    			let cek = $.inArray( org, orgtotal ); 
+		    			let cek = $.inArray( org, orgtotal );
 		    			if(cek == -1){
 		    				orgtotal.push(org);
 		    			}
@@ -809,12 +809,12 @@
 		    			}
 
 		    			let org=d['Organization'];
-		    			let cek = $.inArray( org, orgtotal ); 
+		    			let cek = $.inArray( org, orgtotal );
 		    			if(cek == -1){
 		    				orgtotal.push(org);
 		    			}
 		    		}
-	    			
+
 	    		})
 
 	    		drawregiondiv();
@@ -845,7 +845,7 @@
 	    		function run(){
 	    			map.removeLayer(geojson);
 		    		$('.info').remove();
-		    		
+
 		    		organisationCount = [];
 	    			datatblnew = [];
 	    			locationCount = [];
@@ -877,7 +877,7 @@
 			    			}
 
 			    			let org=d['Organization'];
-			    			let cek = $.inArray( org, orgtotal ); 
+			    			let cek = $.inArray( org, orgtotal );
 			    			if(cek == -1){
 			    				orgtotal.push(org);
 			    			}
@@ -917,7 +917,7 @@
 	    		function run(){
 	    			map.removeLayer(geojson);
 		    		$('.info').remove();
-		    		
+
 	    			datatblnew = [];
 	    			locationCount = [];
 	    			orgtotal=[];
@@ -937,7 +937,7 @@
 			    			}
 
 			    			let org=d['Organization'];
-			    			let cek = $.inArray( org, orgtotal ); 
+			    			let cek = $.inArray( org, orgtotal );
 			    			if(cek == -1){
 			    				orgtotal.push(org);
 			    			}
@@ -986,7 +986,7 @@
 	    		function run(){
 	    			map.removeLayer(geojson);
 		    		$('.info').remove();
-		    		
+
 		    		organisationCount = [];
 	    			statusCount = [];
 	    			datatblnew = [];
@@ -1023,7 +1023,7 @@
 			    			}
 
 			    			let org=d['Organization'];
-			    			let cek = $.inArray( org, orgtotal ); 
+			    			let cek = $.inArray( org, orgtotal );
 			    			if(cek == -1){
 			    				orgtotal.push(org);
 			    			}
@@ -1090,10 +1090,10 @@
 		    			}else{
 		    				sectorCount[sectortype] = 1;
 		    			}
-		    			
-		    			
+
+
 		    			let org=d['Organization'];
-		    			let cek = $.inArray( org, orgtotal ); 
+		    			let cek = $.inArray( org, orgtotal );
 		    			if(cek == -1){
 		    				orgtotal.push(org);
 		    			}
@@ -1122,7 +1122,7 @@
 	    	}
 
 	    	$('#loadinggif').show();
-		    d3.json('Adm2_SOM.geojson',function(jso){	
+		    d3.json('Adm2_SOM.geojson',function(jso){
 	    		statesData = jso;
 	    		//call the original data
 	    		d3.csv('data/thedata.csv',function(data){
@@ -1131,14 +1131,14 @@
 
 		    		drawinit();
 		    		$('#loadinggif').hide();
-		    	})	    	
+		    	})
 
 
 	    	})
 
 
     	})
-    	
+
     </script>
 
 
